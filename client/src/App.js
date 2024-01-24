@@ -1,5 +1,5 @@
-// frontend/src/components/YourComponent.js
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 const YourComponent = () => {
   const [data, setData] = useState(null);
