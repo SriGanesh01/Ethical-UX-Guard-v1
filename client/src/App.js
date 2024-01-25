@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const YourComponent = () => {
+const GetData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const YourComponent = () => {
   );
 };
 
-export default YourComponent;
+export default GetData;
