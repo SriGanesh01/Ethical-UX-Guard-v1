@@ -3,15 +3,18 @@ import './App.css';
 
 const GetData = () => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/Datas');
+        const response = await fetch('http://localhost:5000/Datas');
         const result = await response.json();
         setData(result);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -20,9 +23,11 @@ const GetData = () => {
 
   return (
     <div>
-      {data && (
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
         <div>
-          <p>Variable 1 values:</p>
+          <p className='Hi'>Variable 1 values:</p>
           <p>Value 1: {data.Datas[0]}</p>
           <p>Value 2: {data.Datas[1]}</p>
           <p>Value 3: {data.Datas[2]}</p>
